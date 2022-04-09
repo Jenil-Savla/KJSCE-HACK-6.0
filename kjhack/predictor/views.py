@@ -1,5 +1,7 @@
 from django.http import JsonResponse
 from rest_framework.views import APIView
+from kjhack import settings
+import os
 import pickle
 import cv2
 import tensorflow as tf
@@ -8,8 +10,10 @@ import numpy
 class call_model(APIView):
     def get(self,request):
         if request.method == 'GET':
-            model=tf.keras.models.load_model(r"C:\Users\ryuus\Desktop\New folder\KJSCE-HACK-6.0\kjhack\predictor\model\network.h5")
-            path = r'C:\Users\ryuus\Downloads\Cyclone_Wildfire_Flood_Earthquake_Database\Cyclone\0.jpg'
+            print(settings.BASE_DIR)
+            model_path = os.path.join(settings.BASE_DIR,r"predictor\model\network.h5")
+            model = tf.keras.models.load_model(model_path)
+            path = os.path.join(settings.BASE_DIR,r"predictor\model\OIP.jpg")
             img = cv2.imread(path)
             img = cv2.resize(img,(224,224))
             def prepare(filepath):
