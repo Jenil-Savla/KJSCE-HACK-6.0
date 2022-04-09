@@ -4,7 +4,7 @@ from kjhack import settings
 import os
 import pickle
 import cv2
-import tensorflow as tf
+import keras
 import numpy
 
 class call_model(APIView):
@@ -12,7 +12,7 @@ class call_model(APIView):
         if request.method == 'GET':
             print(settings.BASE_DIR)
             model_path = os.path.join(settings.BASE_DIR,r"predictor\model\network.h5")
-            model = tf.keras.models.load_model(model_path)
+            model = keras.models.load_model(model_path)
             path = os.path.join(settings.BASE_DIR,r"predictor\model\OIP.jpg")
             img = cv2.imread(path)
             img = cv2.resize(img,(224,224))
