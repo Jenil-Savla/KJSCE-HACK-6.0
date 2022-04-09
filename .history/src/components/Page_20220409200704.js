@@ -5,7 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-
+import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -18,12 +18,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
-import { Link, useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
+      <Link color="inherit" href="https://mui.com/">
+        Your Website
+      </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -37,7 +39,9 @@ export default function Page() {
   
 
   return (
-  
+    <Paper style={styles.paperContainer}>
+    Some text to fill the Paper Component
+
      <Grid container component="main" backgroundColor="black" sx={{ height: '100vh' }}>
         <CssBaseline />
                 <Grid item xs={12} backgroundColor="black" sm={8} md={5} component={Paper} elevation={6} square>
@@ -90,7 +94,7 @@ export default function Page() {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />*/}
-            <Link to="/dashboard" > 
+              
               <Button variant="contained" flex="row"
               type="submit"
 
@@ -103,7 +107,6 @@ export default function Page() {
         padding: "18px 36px",
         fontSize: "20px"
     }}>Get Started</Button>
-    </Link>
     {/* <ArrowForwardIcon/> */}
               {/* <Grid container>
                 <Grid item xs>

@@ -7,27 +7,18 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 
-// const loadScript = (src) =>{
-//   return new Promise((resolve=>{
-//     const script =document.createElement('script');
-//     script.src=src
-//     script.onload=()=>{
-//       resolve(true)
-//     }
-//     script.onerror=()=>{
-//       resolve(false)
-//     }
-
-//     document.body.appendChild(script)
-//   }))
-// }
-// const displayRazorpay=(amount)=>{
-//   const res=await loadScript('https://checkout.razorpay.com/v1/checkout.js')
-//   if(!res){
-//     alert('You are offline .. Failed to load Razorpay SDK')
-//     return 
-//   }
-// }
+const loadScript = (src) =>{
+  return new Promise((resolve=>{
+    const script =document.createElement('script');
+  }))
+}
+const displayRazorpay=(amount)=>{
+  const res=await loadScript('https://checkout.razorpay.com/v1/checkout.js')
+  if(!res){
+    alert('You are offline .. Failed to load Razorpay SDK')
+    return 
+  }
+}
 export default function PaymentForm() {
   return (
     <React.Fragment>

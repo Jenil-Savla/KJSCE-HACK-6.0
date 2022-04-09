@@ -5,7 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-
+import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -90,7 +90,7 @@ export default function Page() {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />*/}
-            <Link to="/dashboard" > 
+              
               <Button variant="contained" flex="row"
               type="submit"
 
@@ -103,7 +103,6 @@ export default function Page() {
         padding: "18px 36px",
         fontSize: "20px"
     }}>Get Started</Button>
-    </Link>
     {/* <ArrowForwardIcon/> */}
               {/* <Grid container>
                 <Grid item xs>

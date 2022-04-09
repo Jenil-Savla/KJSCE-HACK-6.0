@@ -90,15 +90,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-var requestOptions = {
-  method: 'GET',
-  redirect: 'follow'
-};
-
-fetch("https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=earthquake|cyclone|flood|tsunami", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
 const mdTheme = createTheme();
 
 function DashboardContent() {
@@ -223,7 +214,7 @@ function DashboardContent() {
           </Grid>
          
           <Grid item xs={2} sm={4} md={4} >
-           <Item>Donate</Item> 
+           <Item onClick={donate}>Donate</Item> 
           </Grid>
          
           <Grid item xs={2} sm={4} md={4} >

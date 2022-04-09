@@ -10,15 +10,14 @@ import Questions from './components/Questions'
 import Precaution from './components/Precaution'
 import listItems from './components/listItems'
 import Navbar from './components/Navbar'
-import Helpline from './components/Helpline'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 function App() {
   return (
     <div className="App">
      <Router>
-    <Navbar/>
     
-      <Routes>
+     
+     <Routes>
      <Route path="/" element={<Page/>}/>
      <Route path="/dashboard" element={<Dashboard/>}/>
      <Route path="/volunteer" element={<Volunteer/>}/>
@@ -26,7 +25,7 @@ function App() {
      <Route path="/missing" element={<Missingreport/>}/>
      <Route path="/faq" element={<Questions/>}/>
      <Route path="/precaution" element={<Precaution/>}/>
-    
+
       {/* <Page/> */}
      {/* <Dashboard />  */}
      {/* <Volunteer /> */}

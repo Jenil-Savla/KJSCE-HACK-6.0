@@ -17,8 +17,8 @@ function App() {
     <div className="App">
      <Router>
     <Navbar/>
-    
-      <Routes>
+    <Helpline/>
+     {/* <Routes>
      <Route path="/" element={<Page/>}/>
      <Route path="/dashboard" element={<Dashboard/>}/>
      <Route path="/volunteer" element={<Volunteer/>}/>
@@ -26,7 +26,7 @@ function App() {
      <Route path="/missing" element={<Missingreport/>}/>
      <Route path="/faq" element={<Questions/>}/>
      <Route path="/precaution" element={<Precaution/>}/>
-    
+       */}
       {/* <Page/> */}
      {/* <Dashboard />  */}
      {/* <Volunteer /> */}

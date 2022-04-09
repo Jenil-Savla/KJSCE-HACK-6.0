@@ -90,15 +90,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-var requestOptions = {
-  method: 'GET',
-  redirect: 'follow'
-};
-
-fetch("https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=earthquake|cyclone|flood|tsunami", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
 const mdTheme = createTheme();
 
 function DashboardContent() {

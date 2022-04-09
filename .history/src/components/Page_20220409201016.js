@@ -90,7 +90,7 @@ export default function Page() {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />*/}
-            <Link to="/dashboard" > 
+              
               <Button variant="contained" flex="row"
               type="submit"
 
@@ -103,7 +103,6 @@ export default function Page() {
         padding: "18px 36px",
         fontSize: "20px"
     }}>Get Started</Button>
-    </Link>
     {/* <ArrowForwardIcon/> */}
               {/* <Grid container>
                 <Grid item xs>

@@ -18,8 +18,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
-
-
 //import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
@@ -90,15 +88,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-var requestOptions = {
-  method: 'GET',
-  redirect: 'follow'
-};
-
-fetch("https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=earthquake|cyclone|flood|tsunami", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
 const mdTheme = createTheme();
 
 function DashboardContent() {
@@ -109,7 +98,7 @@ function DashboardContent() {
 
   return (
     <ThemeProvider theme={mdTheme}>
-      {/* <Box sx={{ display: 'flex' ,}}>
+      <Box sx={{ display: 'flex' ,}}>
         <CssBaseline />
         <AppBar position="absolute" open={open} sx={{backgroundColor:'black'}}>
           <Toolbar
@@ -178,7 +167,7 @@ function DashboardContent() {
             overflow: 'auto',
           }}
         >
-          <Toolbar /> */}
+          <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
               {/* Chart */}
@@ -214,38 +203,37 @@ function DashboardContent() {
                 </Paper>
               </Grid>
             </Grid>
-        
+            <Copyright sx={{ pt: 4 }} />
           </Container>
           <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{padding: 5}}>
+          <Link to="/volunteer"><Grid item xs={2} sm={4} md={4} >
+            <Item>Volunteer</Item>
+          </Grid><Link>
+          <Link to="/volunteer">
           <Grid item xs={2} sm={4} md={4} >
-         <Item>Volunteer</Item>
-          </Grid>
-         
-          <Grid item xs={2} sm={4} md={4} >
-           <Item>Donate</Item> 
-          </Grid>
-         
-          <Grid item xs={2} sm={4} md={4} >
-          <Link to="/missing">   <Item>Report Missing</Item></Link>
+            <Item>Donate</Item>
           </Grid>
           <Grid item xs={2} sm={4} md={4} >
-          <Link to="/contact"> <Item>Helpline</Item></Link>
+            <Item>Report Missing</Item>
           </Grid>
           <Grid item xs={2} sm={4} md={4} >
-          <Link to="/precautions">  <Item>Precautions</Item> </Link>
+            <Item>Helpline</Item>
           </Grid>
           <Grid item xs={2} sm={4} md={4} >
-          <Link to="/faq">  <Item>Questions</Item> </Link>
+            <Item>Precautions</Item>
+          </Grid>
+          <Grid item xs={2} sm={4} md={4} >
+            <Item>Questions</Item>
           </Grid>
       
       </Grid>
     </Box> 
-        {/* </Box> */}
+        </Box>
         
-
+      </Box>
      
-    // </ThemeProvider>
+    </ThemeProvider>
   );
 }
 

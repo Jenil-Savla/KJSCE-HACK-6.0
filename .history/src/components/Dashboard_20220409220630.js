@@ -19,7 +19,6 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
 
-
 //import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
@@ -90,15 +89,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-var requestOptions = {
-  method: 'GET',
-  redirect: 'follow'
-};
-
-fetch("https://api.reliefweb.int/v1/reports?appname=apidoc&query[value]=earthquake|cyclone|flood|tsunami", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
 const mdTheme = createTheme();
 
 function DashboardContent() {
@@ -219,11 +209,11 @@ function DashboardContent() {
           <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{padding: 5}}>
           <Grid item xs={2} sm={4} md={4} >
-         <Item>Volunteer</Item>
+          <Link to="/volunteer">  <Item>Volunteer</Item></Link>
           </Grid>
          
           <Grid item xs={2} sm={4} md={4} >
-           <Item>Donate</Item> 
+          <Link to="/donate"> <Item>Donate</Item> </Link>
           </Grid>
          
           <Grid item xs={2} sm={4} md={4} >
