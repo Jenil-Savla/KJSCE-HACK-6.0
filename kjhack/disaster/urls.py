@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     path('disaster-list', views.disaster_list, name = 'disaster-list'),
+    path('organization', views.org, name = 'organization'),
     path('volunteer', views.VolunteerAPI.as_view() , name = 'volunteer'),
     path('donate', views.DonationAPI.as_view() , name = 'donate'),
     path('handle-status', views.handlepayment, name = 'handle-status'),

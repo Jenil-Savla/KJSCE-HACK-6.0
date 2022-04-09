@@ -1,6 +1,11 @@
 from rest_framework import serializers
 
-from .models import Disaster, Found, Volunteer, Donation, Report
+from .models import Disaster, Found, Volunteer, Donation, Report, Organization
+
+class OrganizationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Organization
+        fileds = '__all__'
 
 class DisasterSerializer(serializers.ModelSerializer):
     class Meta:

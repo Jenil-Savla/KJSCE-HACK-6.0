@@ -2,9 +2,14 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.generics import GenericAPIView
 
-from .serializers import DisasterSerializer, VolunteerSerializer, DonationSerializer, ReportSerializer, FoundSerializer
-from .models import Disaster, Volunteer, Donation, Report, Found
+from .serializers import DisasterSerializer, VolunteerSerializer, DonationSerializer, ReportSerializer, FoundSerializer, OrganizationSerializer
+from .models import Disaster, Volunteer, Donation, Report, Found, Organization
 
+@api_view(['GET'])
+def org(request):
+    organizations = Organization.objects.all()
+    serializer = OrganizationSerializer(organizations, many=True)
+    return JsonResponse(serializer.data, safe = False)
 
 @api_view(['GET'])
 def disaster_list(request):
