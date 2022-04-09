@@ -6,21 +6,15 @@ import Dashboard from './components/Dashboard'
 import Volunteer from './components/Volunteer'
 import Donate from './components/Donate'
 import Missingreport from './components/Missingreport'
-import Questions from './components/Questions'
-import listItems from './components/listItems'
-import Navbar from './components/Navbar'
 function App() {
   return (
     <div className="App">
-     <Navbar/>
      
       {/* <Page/> */}
-     {/* <Dashboard />  */}
+     {/* <Dashboard /> */}
      {/* <Volunteer /> */}
-     {/* <Donate/> */}
-     {/* <Missingreport/> */}
-     {/* <Questions/> */}
-     {/* <listItems/>  */}
+     <Donate/>
+     <Missingreport/>
     </div>
   );
 }

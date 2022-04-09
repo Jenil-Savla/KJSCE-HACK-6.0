@@ -7,7 +7,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 export default function AddressForm() {
   return (
-      <div>
+      <div style={padding:5px}>
     <React.Fragment sx={{padding:"100px" }}>
       <Typography variant="h6" gutterBottom sx={{padding:"100px" }}>
         Volunteer 

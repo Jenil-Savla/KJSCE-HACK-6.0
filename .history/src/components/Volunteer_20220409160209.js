@@ -4,11 +4,10 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Button from '@mui/material/Button';
+
 export default function AddressForm() {
   return (
-      <div>
-    <React.Fragment sx={{padding:"100px" }}>
+    <React.Fragment>
       <Typography variant="h6" gutterBottom sx={{padding:"100px" }}>
         Volunteer 
       </Typography>
@@ -35,26 +34,14 @@ export default function AddressForm() {
             variant="standard"
           />
         </Grid>
-        
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12}>
           <TextField
             required
-            id="Age"
-            name="Age"
-            label="Age"
+            id="address1"
+            name="address1"
+            label="Address line 1"
             fullWidth
-            autoComplete="given-name"
-            variant="standard"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="Gender"
-            name="gender"
-            label="Gender"
-            fullWidth
-            autoComplete="family-name"
+            autoComplete="shipping address-line1"
             variant="standard"
           />
         </Grid>
@@ -90,21 +77,13 @@ export default function AddressForm() {
             variant="standard"
           />
         </Grid>
+        <Grid item xs={12}>
+          <FormControlLabel
+            control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
+            label="Use this address for payment details"
+          />
+        </Grid>
       </Grid>
-      <br/>
-      <Button variant="contained" flex="row"
-              type="submit"
-
-              fullWidth
-               
-              // endIcon={<ArrowRightAltIcon fontSize="large"/>}
-              style={{
-        borderRadius: 35,
-        backgroundColor: "#21b6ae",
-        padding: "18px 5px",
-        fontSize: "20px"
-    }}>Get Started</Button>
     </React.Fragment>
-    </div>
   );
 }

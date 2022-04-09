@@ -4,11 +4,10 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Button from '@mui/material/Button';
+
 export default function AddressForm() {
   return (
-      <div>
-    <React.Fragment sx={{padding:"100px" }}>
+    <React.Fragment>
       <Typography variant="h6" gutterBottom sx={{padding:"100px" }}>
         Volunteer 
       </Typography>
@@ -91,20 +90,7 @@ export default function AddressForm() {
           />
         </Grid>
       </Grid>
-      <br/>
-      <Button variant="contained" flex="row"
-              type="submit"
-
-              fullWidth
-               
-              // endIcon={<ArrowRightAltIcon fontSize="large"/>}
-              style={{
-        borderRadius: 35,
-        backgroundColor: "#21b6ae",
-        padding: "18px 5px",
-        fontSize: "20px"
-    }}>Get Started</Button>
+      
     </React.Fragment>
-    </div>
   );
 }

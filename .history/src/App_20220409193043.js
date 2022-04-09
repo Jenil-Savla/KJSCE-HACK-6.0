@@ -12,7 +12,6 @@ import Navbar from './components/Navbar'
 function App() {
   return (
     <div className="App">
-     <Navbar/>
      
       {/* <Page/> */}
      {/* <Dashboard />  */}
@@ -21,6 +20,7 @@ function App() {
      {/* <Missingreport/> */}
      {/* <Questions/> */}
      {/* <listItems/>  */}
+     <Navbar/>
     </div>
   );
 }
