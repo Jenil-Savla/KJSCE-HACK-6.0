@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Disaster, Found, Volunteer, Donation, Report, Organization
+from .models import Disaster, Found, Volunteer, Donation, Report, Organization, Order, Payment
 
 class OrganizationSerializer(serializers.ModelSerializer):
     class Meta:
@@ -30,4 +30,16 @@ class ReportSerializer(serializers.ModelSerializer):
 class FoundSerializer(serializers.ModelSerializer):
     class Meta:
         model = Found
+        fields = '__all__'
+
+class OrderDetailsSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model=Order
+        fields= '__all__'
+        
+class PaymentDetailsSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Payment
         fields = '__all__'

@@ -64,3 +64,18 @@ class Found(models.Model):
 
     def __str__(self):
         return f"{self.report} - {self.contact}"
+
+class Order(models.Model):
+    order_product = models.CharField(max_length=100)
+    order_amount = models.CharField(max_length=25)
+    order_payment_id = models.CharField(max_length=100)
+    isPaid = models.BooleanField(default=False)
+    order_date = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.order_product
+
+class Payment(models.Model):
+    razorpay_payment_id = models.CharField(max_length=23)
+    razorpay_order_id = models.CharField(max_length=25, primary_key=True)
+    razorpay_signature = models.CharField(max_length=70)

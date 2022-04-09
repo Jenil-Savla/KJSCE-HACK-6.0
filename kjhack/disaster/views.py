@@ -1,9 +1,13 @@
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.generics import GenericAPIView
+import razorpay, environ
+from .serializers import DisasterSerializer, VolunteerSerializer, DonationSerializer, ReportSerializer, FoundSerializer, OrganizationSerializer, OrderDetailsSerializer,PaymentDetailsSerializer
+from .models import Disaster, Volunteer, Donation, Report, Found, Organization, Order, Payment
+from rest_framework.response import Response
 
-from .serializers import DisasterSerializer, VolunteerSerializer, DonationSerializer, ReportSerializer, FoundSerializer, OrganizationSerializer
-from .models import Disaster, Volunteer, Donation, Report, Found, Organization
+env = environ.Env()
+environ.Env.read_env()
 
 @api_view(['GET'])
 def org(request):
@@ -101,3 +105,45 @@ class SearchAPI(GenericAPIView):
         report.found = True
         report.save()
         return JsonResponse({'success':'success'}, safe = False)
+
+class RazorPayOrder(GenericAPIView):
+
+    serializer_class = OrderDetailsSerializer
+    
+    def post(self,request,*args,**kwargs):
+        client = razorpay.Client(auth=(env("KEY_ID"), env("KEY_SECRET")))
+        client.set_app_details({"title" : "Disaster", "version" : "1.0.0"})
+        amount = request.data['order_amount']
+        name = request.data['order_product']
+        data = { "amount": amount, "currency": "INR", "payment_capture": "1" }
+        payment = client.order.create(data=data)
+        order = Order.objects.create(order_product=name, order_amount=amount, order_payment_id=payment['id'])
+        serializer = self.serializer_class(order)
+        data = {
+        "payment": payment,
+        "order": serializer.data
+        }
+        return Response(data)
+
+class PaymentDetailsView(GenericAPIView):
+
+    serializer_class = PaymentDetailsSerializer
+
+    def post(self,request,*args,**kwargs):
+        razorpay_payment_id = request.data['razorpay_payment_id']
+        razorpay_order_id = request.data['razorpay_order_id']
+        razorpay_signature = request.data['razorpay_signature']
+        client = razorpay.Client(auth = ('[key_id]', '[key_secret]'))
+        trusted_order = Order.objects.get(order_payment_id=razorpay_order_id)
+        if trusted_order:
+            params_dict={
+                'razorpay_order_id': razorpay_payment_id,
+                'razorpay_payment_id': razorpay_order_id,
+                'razorpay_signature': razorpay_signature
+                }
+            verification = client.utility.verify_payment_signature(params_dict)
+            trusted_order.isPaid = True
+            trusted_order.save()
+        else:
+            verification = False
+        return Response(verification)
