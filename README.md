@@ -30,9 +30,9 @@ People can use ResNet-50 powered calamity prediction software to prepare themsel
 - News panel to keep user updated
 
 ## ML Model
-![Model](https://drive.google.com/file/d/16qI92YKri1PZK9C50V5S3IUQy8_dioah/view?usp=sharing)
-![Graph](https://drive.google.com/file/d/1zEEbMNCmaiQmqPdPo7wMZHiWgy2ymgX4/view?usp=sharing)
-![Prediction](https://drive.google.com/file/d/177k6ma4cPJt6l2z6HRUZBf3OBsBjnuOD/view?usp=sharing)
+![Model](https://drive.google.com/file/d/177k6ma4cPJt6l2z6HRUZBf3OBsBjnuOD/)
+![Graph](https://drive.google.com/file/d/1zEEbMNCmaiQmqPdPo7wMZHiWgy2ymgX4/)
+![Prediction](https://drive.google.com/file/d/177k6ma4cPJt6l2z6HRUZBf3OBsBjnuOD/)
 
 
 ## Feedback
