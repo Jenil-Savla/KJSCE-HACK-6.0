@@ -50,7 +50,7 @@ class Report(models.Model):
     gender = models.CharField(max_length = 10)
     phone = models.BigIntegerField(unique = True)
     email = models.EmailField()
-    photo = models.ImageField(upload_to = 'missing')
+    photo = models.ImageField(upload_to = 'missing', null = True)
     description = models.TextField(max_length = 255,blank = True,null=True)
     found = models.BooleanField(default=False)
     
